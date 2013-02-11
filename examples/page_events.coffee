@@ -22,10 +22,10 @@ printArgs = ->
   i = undefined
   ilen = undefined
   i = 0
-  ilen = arguments_.length
+  ilen = arguments.length
 
   while i < ilen
-    console.log "    arguments[" + i + "] = " + arguments_[i]
+    console.log "    arguments[" + i + "] = " + arguments[i]
     ++i
   console.log ""
 sys = require("system")
@@ -38,59 +38,59 @@ logResources = true  if sys.args > 1 and sys.args[1] is "-v"
 #//////////////////////////////////////////////////////////////////////////////
 page.onInitialized = ->
   console.log "page.onInitialized"
-  printArgs.apply this, arguments_
+  printArgs.apply this, arguments
 
 page.onLoadStarted = ->
   console.log "page.onLoadStarted"
-  printArgs.apply this, arguments_
+  printArgs.apply this, arguments
 
 page.onLoadFinished = ->
   console.log "page.onLoadFinished"
-  printArgs.apply this, arguments_
+  printArgs.apply this, arguments
 
 page.onUrlChanged = ->
   console.log "page.onUrlChanged"
-  printArgs.apply this, arguments_
+  printArgs.apply this, arguments
 
 page.onNavigationRequested = ->
   console.log "page.onNavigationRequested"
-  printArgs.apply this, arguments_
+  printArgs.apply this, arguments
 
 if logResources is true
   page.onResourceRequested = ->
     console.log "page.onResourceRequested"
-    printArgs.apply this, arguments_
+    printArgs.apply this, arguments
 
   page.onResourceReceived = ->
     console.log "page.onResourceReceived"
-    printArgs.apply this, arguments_
+    printArgs.apply this, arguments
 page.onClosing = ->
   console.log "page.onClosing"
-  printArgs.apply this, arguments_
+  printArgs.apply this, arguments
 
 
 # window.console.log(msg);
 page.onConsoleMessage = ->
   console.log "page.onConsoleMessage"
-  printArgs.apply this, arguments_
+  printArgs.apply this, arguments
 
 
 # window.alert(msg);
 page.onAlert = ->
   console.log "page.onAlert"
-  printArgs.apply this, arguments_
+  printArgs.apply this, arguments
 
 
 # var confirmed = window.confirm(msg);
 page.onConfirm = ->
   console.log "page.onConfirm"
-  printArgs.apply this, arguments_
+  printArgs.apply this, arguments
 
 
 # var user_value = window.prompt(msg, default_value);
 page.onPrompt = ->
   console.log "page.onPrompt"
-  printArgs.apply this, arguments_
+  printArgs.apply this, arguments
 
 
 #//////////////////////////////////////////////////////////////////////////////
